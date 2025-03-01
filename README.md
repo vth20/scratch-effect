@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# Scratch Card Effect
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+This project is a customizable scratch card effect built with React and TypeScript. It allows users to create interactive scratch-off cards with various customization options such as overlays, completion callbacks, and card shapes.
 
-## Available Scripts
+## Features
+- **Custom Scratch Overlay:** Use an image or url as the scratch-off layer.
+- **OnComplete Callback:** Trigger a function when a certain percentage of the layer is scratched off.
+- **Custom Card Shapes:** Define unique shapes for the scratch card.
+- **Brush Customization:** Adjust the size and appearance of the brush used for scratching.
+- **Responsive & Mobile-Friendly:** Works seamlessly on both desktop and mobile devices.
 
-In the project directory, you can run:
+## Installation
 
-### `npm start`
+Clone the repository and install dependencies:
+```sh
+git clone <repo-url>
+cd scratch-card-app
+npm install
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Usage
+Import and use the `ScratchCard` component in your React application:
+```tsx
+import ScratchCard from "./components/ScratchCard";
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+const App = () => {
+  const handleComplete = () => {
+    console.log("Scratch card fully revealed!");
+  };
 
-### `npm test`
+  return (
+    <ScratchCard
+      content={<div>Congratulations! You won!</div>}
+      layer="/path-to-overlay-image.png"
+      onComplete={handleComplete}
+      style={{ width: 300, height: 200 }}
+    />
+  );
+};
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+export default App;
+```
 
-### `npm run build`
+## Props
+## Props
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Prop            | Type                     | Default  | Description |
+|----------------|--------------------------|----------|-------------|
+| `content`      | `ReactElement`            | `-`      | The content inside the scratch card. |
+| `layer`        | `File \| string`          | `-`      | The scratchable overlay, can be an image file or a URL. |
+| `style`        | `CSSProperties`           | `{}`     | Custom styles for the scratch card container. |
+| `className`    | `string`                  | `""`     | Additional class names for styling. |
+| `finishPercent` | `number`                 | `-`     | The percentage of the scratched area required to trigger `onComplete`. |
+| `onComplete`   | `() => void` | `-` | Callback function executed when the scratched area reaches `finishPercent`. |
+| `revealThreshold` | `number`               | `1`     | The percentage of the scratched area required to start revealing the content. |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Customization
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Adjusting Scratch Completion Threshold
+You can define a specific percentage of scratching required before triggering `onComplete`:
+```tsx
+<Scratch onComplete={() => {
+  console.log("Completed")
+}} />
+```
 
-### `npm run eject`
+## Demo
+![Scratch Card Demo](./src//assets/demo.gif)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Author
+Developed by @vth20
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

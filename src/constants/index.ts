@@ -1,0 +1,3 @@
+const STRIDE_DEFAULT = 32;
+
+export { STRIDE_DEFAULT };
