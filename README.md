@@ -14,15 +14,16 @@ This project is a customizable scratch card effect built with React and TypeScri
 
 Clone the repository and install dependencies:
 ```sh
-git clone <repo-url>
-cd scratch-card-app
+git clone https://github.com/vth20/scratch-effect.git
+cd scratch-effect
 npm install
+npm start
 ```
 
 ## Usage
-Import and use the `ScratchCard` component in your React application:
+Import and use the `Scratch` component in your React application:
 ```tsx
-import ScratchCard from "./components/ScratchCard";
+import Scratch from "./components/Scratch";
 
 const App = () => {
   const handleComplete = () => {
@@ -30,9 +31,9 @@ const App = () => {
   };
 
   return (
-    <ScratchCard
+    <Scratch
       content={<div>Congratulations! You won!</div>}
-      layer="/path-to-overlay-image.png"
+      layer="/path-to-overlay-image.png or image's url"
       onComplete={handleComplete}
       style={{ width: 300, height: 200 }}
     />
