@@ -3,7 +3,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { drawImageProp } from "utils/canvas.utils";
 import { TPoint, TScratchProps } from "../../types/scratch";
 import { getBase64FromLayer } from "../../utils/base64.utils";
-import "./style.css";
 import { STRIDE_DEFAULT } from "../../constants";
 
 function Scratch({
@@ -228,12 +227,28 @@ function Scratch({
   ]);
 
   return (
-    <div className={`container ${className || ""}`} style={{ ...style }}>
+    <div
+      className={`container ${className || ""}`}
+      style={{
+        position: "relative",
+        WebkitUserSelect: "none",
+        MozUserSelect: "none",
+        msUserSelect: "none",
+        userSelect: "none",
+        overflow: "hidden",
+        objectFit: "contain",
+        ...style,
+      }}
+    >
       <canvas
-        className="canvas"
         ref={canvasRef}
         width={style?.width || 300}
         height={style?.height || 300}
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+        }}
       ></canvas>
       <div
         ref={contentRef}
