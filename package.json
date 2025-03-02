@@ -1,7 +1,10 @@
 {
-  "name": "pj-Scratchie",
-  "version": "0.1.0",
-  "private": true,
+  "name": "scratchie-effect",
+  "version": "0.1.1",
+  "private": false,
+  "main": "dist/components/Scratch/index.js",
+  "types": "dist/components/Scratch/index.d.ts",
+  "files": ["dist"],
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -11,9 +14,15 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vth20/scratch-effect.git"
+  },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "copy-files": "copyfiles -u 1 src/**/*.css lib/",
+    "build": "tsc",
+    "prepublishOnly": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -39,5 +48,7 @@
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "typescript": "^5.8.2"
-  }
+  },
+  "keywords": ["react", "scratch-card", "interactive"],
+  "author": "vth20"
 }
