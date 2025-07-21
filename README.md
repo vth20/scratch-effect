@@ -44,7 +44,6 @@ export default App;
 ```
 
 ## Props
-## Props
 
 | Prop            | Type                     | Default  | Description |
 |----------------|--------------------------|----------|-------------|
